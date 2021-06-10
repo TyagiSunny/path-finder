@@ -50,7 +50,7 @@ export default class PathfindingVisualizer extends Component{
             startNode_row=row;
             startNode_col=col;
             document.getElementById(`node-${startNode_row}-${startNode_col}`).className='node node-start';
-        }else if(finishNode===-1 && startNode_row!==row && startNode_col!==col){
+        }else if(finishNode===-1 && startNode!==-1){
             this.setState({finishNode:1});
             finishNode_row=row;
             finishNode_col=col;
@@ -125,10 +125,14 @@ export default class PathfindingVisualizer extends Component{
                 if(nodesInShortestPath.length===0){
                     this.setState({message:"Sorry, There is no way to reach destination..."});
                     setTimeout(() => {
+
+                        this.setState({running:false});
                         this.setState({message:""});    
                     }, 1000);
                 }else{
                     setTimeout(() => {
+
+                        this.setState({running:false});
                         this.animateShortestPath(nodesInShortestPath);
                     }, 10*i);
                 }
@@ -198,7 +202,7 @@ export default class PathfindingVisualizer extends Component{
             // let msg=;
             this.setState({message:"Algo is running, please wait ..."});
             setTimeout(() => {
-                this.setState({message:"",running:false});
+                this.setState({message:""});
             }, 2000);
         }
         
