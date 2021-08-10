@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import PathfindingVisualizer from "./PathfindingVisualizer/PathfindingVisualizer";
+import PathFinder from "./PathFinder/PathFinder";
 
 function App() {
   return (
     <div className="App">
-      <PathfindingVisualizer></PathfindingVisualizer>
+      <PathFinder></PathFinder>
     </div>
   );
 }
